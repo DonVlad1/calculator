@@ -1,24 +1,24 @@
-// import the useState hook if you want to store values in the state
-import React, { useState } from 'react';
-import './App.css';
+// // import the useState hook if you want to store values in the state
+// import React, { useState } from 'react';
+// import './App.css';
 
-const App = () => 
-{
-  const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
+// const App = () => 
+// {
+//   const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
 
-  // state = {
-  //   calculatorButtons: [0,1,2,3,4,5,6,7,8,9,"+","-","="]
+//   // state = {
+//   //   calculatorButtons: [0,1,2,3,4,5,6,7,8,9,"+","-","="]
 
-  return (
-    <div>
-      {calculatorButtons.map((button, buttonKey) =>
-      {
-        return <h1 key = { buttonKey }>The button is {button}</h1>
-      })}
-    </div>
-  )
-}
-export default App
+//   return (
+//     <div>
+//       {calculatorButtons.map((button, buttonKey) =>
+//       {
+//         return <h1 key = { buttonKey }>The button is {button}</h1>
+//       })}
+//     </div>
+//   )
+// }
+// export default App
 
 
 
@@ -46,3 +46,25 @@ export default App
     //   <h2>Fail</h2>
     //   gameState = false
     // }
+
+
+import React, { useState } from 'react';
+import './App.css';
+
+const App = () => 
+{
+  const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
+
+  // state = {
+  //   calculatorButtons: [0,1,2,3,4,5,6,7,8,9,"+","-","="]
+
+  return (
+    <div>
+      {calculatorButtons.map((button, buttonKey) =>
+      {
+        return <h1 key = { buttonKey }>The button is {button}</h1>
+      })}
+    </div>
+  )
+}
+export default App
