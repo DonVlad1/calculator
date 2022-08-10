@@ -54,11 +54,15 @@ import { evaluate } from 'mathjs'
 
 const App = () => 
 {
-  
-const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
+
+const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,'+','-'])
+const [calculatorOperators, setCalculatorOperators] = useState([])
 const [selectedButtons, setButtonSelection] = useState([])
-let calculateState = true
-let calculation = [12,"+","+","+","-", 3,"/", 2]
+// let testNumber = 0
+
+const [testNumber, setTestNumber] = useState(0)
+//let calculateState = true
+//let calculation = [12,"+","+","+","-", 3,"/", 2]
 
   return (
     <div>
@@ -67,21 +71,23 @@ let calculation = [12,"+","+","+","-", 3,"/", 2]
         return (
           <div key = { buttonKey }>
           <button onClick={() => setButtonSelection((selectedButtons) => [...selectedButtons, button])}>{button}</button>
+          <button onClick={() => setTestNumber(returnResult(selectedButtons))}>=</button>
+          {/* {console.log(testNumber)} */}
+          <h1>Test number is {testNumber}</h1>
           <h1>Numbers are {selectedButtons}</h1>
-          <h1>Total is {selectedButtons.join()}</h1>
-          
-    
-
-          <p> {evaluate(calculation.join(""))} </p>
+          {/* <h1>Total is {selectedButtons.join()}</h1> */}
           </div>
-
-
         )
       })}
     </div>
   )
 }
 
+function returnResult(testNumber)
+{
+  selectedButtons = testNumber + 1
+  return testNumber
+}
 
 
 
