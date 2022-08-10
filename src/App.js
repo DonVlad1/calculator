@@ -50,21 +50,58 @@
 
 import React, { useState } from 'react';
 import './App.css';
+import { evaluate } from 'mathjs'
 
 const App = () => 
 {
-  const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
-
-  // state = {
-  //   calculatorButtons: [0,1,2,3,4,5,6,7,8,9,"+","-","="]
+  
+const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,3,4,5,6,7,8,9,"+","-","="])
+const [selectedButtons, setButtonSelection] = useState([])
+let calculateState = true
+let calculation = [12,"+","+","+","-", 3,"/", 2]
 
   return (
     <div>
       {calculatorButtons.map((button, buttonKey) =>
       {
-        return <h1 key = { buttonKey }>The button is {button}</h1>
+        return (
+          <div key = { buttonKey }>
+          <button onClick={() => setButtonSelection((selectedButtons) => [...selectedButtons, button])}>{button}</button>
+          <h1>Numbers are {selectedButtons}</h1>
+          <h1>Total is {selectedButtons.join()}</h1>
+          
+    
+
+          <p> {evaluate(calculation.join(""))} </p>
+          </div>
+
+
+        )
       })}
     </div>
   )
 }
+
+
+
+
+
 export default App
+
+
+// import React, { useState } from "react";
+// export default function App() {
+//   const [arr, setArr] = useState(["foo"]);
+//   return (
+//     <div className="App">
+//       <button onClick={() => setArr((oldArray) => [...oldArray, "foo"])}>
+//         add
+//       </button>
+//       <div>
+//         {arr.map((a, i) => (
+//           <p key={i}>{a}</p>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
