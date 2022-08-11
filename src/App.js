@@ -56,11 +56,10 @@ const App = () =>
 {
 
 const [calculatorButtons, setCalculatorButtons] = useState([0,1,2,'+','-'])
-const [calculatorOperators, setCalculatorOperators] = useState([])
+// const [calculatorOperators, setCalculatorOperators] = useState([])
 const [selectedButtons, setButtonSelection] = useState([])
+const [calculatorTotal, setCalculatorTotal] = useState([])
 // let testNumber = 0
-
-const [testNumber, setTestNumber] = useState(0)
 //let calculateState = true
 //let calculation = [12,"+","+","+","-", 3,"/", 2]
 
@@ -71,9 +70,12 @@ const [testNumber, setTestNumber] = useState(0)
         return (
           <div key = { buttonKey }>
           <button onClick={() => setButtonSelection((selectedButtons) => [...selectedButtons, button])}>{button}</button>
-          <button onClick={() => setTestNumber(returnResult(selectedButtons))}>=</button>
-          {/* {console.log(testNumber)} */}
-          <h1>Test number is {testNumber}</h1>
+          <button onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button>
+
+          {/* <button onClick={() => returnResult(testNumber)}>=</button> */}
+
+          <h1>Calculator Total is {calculatorTotal}</h1>
+          <h1>Test number is {selectedButtons}</h1>
           <h1>Numbers are {selectedButtons}</h1>
           {/* <h1>Total is {selectedButtons.join()}</h1> */}
           </div>
@@ -83,12 +85,18 @@ const [testNumber, setTestNumber] = useState(0)
   )
 }
 
-function returnResult(testNumber)
-{
-  selectedButtons = testNumber + 1
-  return testNumber
-}
+// function returnResult()  // got this working
+// {
+//   let testingNumber = [2, "+", 2]
+//   let testNumber = evaluate(testingNumber.join(""))
+//   console.log(testNumber)
+//   return testNumber
+// }
 
+function returnResult(selectedButtons)  
+{
+  return evaluate(selectedButtons.join(""))
+}
 
 
 
