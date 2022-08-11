@@ -11,8 +11,8 @@ const [calculatorTotal, setCalculatorTotal] = useState([])
   return (
     <div className='calculatorContainer'>
       <div className="calculatorTotalScreen">
-        <h1>Numbers are {selectedButtons}</h1>
-        <h1>Calculator Total is {calculatorTotal}</h1>
+        <h1>Numbers: {selectedButtons}</h1>
+        <h1>Total: {calculatorTotal}</h1>
       </div>
       
       <div className='calculatorButtons'>
@@ -36,7 +36,6 @@ const [calculatorTotal, setCalculatorTotal] = useState([])
           }
         })}
       </div>
-
     </div>
   )
 }
