@@ -9,18 +9,18 @@ const [selectedButtons, setButtonSelection] = useState([])
 const [calculatorTotal, setCalculatorTotal] = useState([])
 
   return (
-    <div>
+    <div className='calculatorContainer'>
       <div className="calculatorTotalScreen">
         <h1>Numbers are {selectedButtons}</h1>
         <h1>Calculator Total is {calculatorTotal}</h1>
       </div>
       
-      <div>
+      <div className='calculatorButtons'>
       {calculatorButtons.map((button, buttonKey) =>
         {
           if (button === '=') 
           {
-            return(<button key= { buttonKey } onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button>)
+            return(<button className='equalsButton' key= { buttonKey } onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button>)
           }
           else if (button === 'C')
           {
