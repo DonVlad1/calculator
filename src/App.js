@@ -55,9 +55,7 @@ function addButtons(selectedButtons, button)
 
 function deleteLast(selectedButtons)
 {
-  return selectedButtons.pop()
+  return selectedButtons.splice(-1)
 }
-
-
 
 export default App
