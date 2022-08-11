@@ -18,7 +18,6 @@ const [calculatorTotal, setCalculatorTotal] = useState([])
       <div>
       {calculatorButtons.map((button, buttonKey) =>
         {
-          console.log(selectedButtons[selectedButtons.length - 1]) 
           if (button === '=') 
           {
             return(<button key= { buttonKey } onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button>)
