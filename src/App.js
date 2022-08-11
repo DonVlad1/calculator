@@ -53,9 +53,13 @@ function returnResult(selectedButtons)
 
 function addButtons(selectedButtons, button)
 {
-  if ((button === '/' || button === '*') && (selectedButtons[selectedButtons.length - 1] === button))
+  if ((button === '/' || button === '*') && ((typeof selectedButtons[selectedButtons.length - 1] === 'string')))
   {
     return(selectedButtons)
+  }
+  else if ((button === '+' || button === '-') && (selectedButtons[selectedButtons.length - 1] === '/' || selectedButtons[selectedButtons.length - 1] === '*'))
+  {
+    return selectedButtons
   }
   else
   {
