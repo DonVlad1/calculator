@@ -5,7 +5,7 @@ import { evaluate } from 'mathjs'
 const App = () => 
 {
 
-const [calculatorButtons, setCalculatorButtons] = useState([0,1,'+','-','='])
+const [calculatorButtons, setCalculatorButtons] = useState([0,1,'+','-','C','='])
 const [selectedButtons, setButtonSelection] = useState([])
 const [calculatorTotal, setCalculatorTotal] = useState([])
 
@@ -17,25 +17,26 @@ const [calculatorTotal, setCalculatorTotal] = useState([])
         {
           return(
           <div>
-          <button onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button> 
+          <button key= {buttonKey} onClick={() => setCalculatorTotal(returnResult(selectedButtons))}>=</button> 
           <h1>Numbers are {selectedButtons}</h1>
           <h1>Calculator Total is {calculatorTotal}</h1>
           </div>
           )
         }
-
+        else if (button === 'C')
+          return(<button key= {buttonKey} onClick={() => clearAll(setButtonSelection, setCalculatorTotal)}>C</button>)
         else
         {
-          return (
-            <div key = { buttonKey }>
-            <button onClick={() => setButtonSelection(addButtons(selectedButtons, button))}>{button}</button>
-          </div>
-          )
+          return (<button key= {buttonKey} onClick={() => setButtonSelection(addButtons(selectedButtons, button))}>{button}</button>)
         }
       })}
     </div>
   )
-  
+}
+
+function clearAll(setButtonSelection, setCalculatorTotal)
+{
+return setButtonSelection(""), setCalculatorTotal("")
 }
 
 
